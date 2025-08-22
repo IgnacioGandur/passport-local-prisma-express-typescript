@@ -3,17 +3,25 @@ import { Router } from "express";
 import passport from "passport";
 import authController from "../controllers/authController.js";
 
+// Validators
+import validateUserRegister from "../middleware/validators/auth/validateUserRegister.js";
+import validateUserLogin from "../middleware/validators/auth/validateUserLogin.js";
+
 const authRouter = Router();
 
 authRouter
     .route("/login")
     .post(
+        validateUserLogin,
         passport.authenticate("local"),
         authController.login)
 
 authRouter
     .route("/register")
-    .post(authController.register);
+    .post(
+        validateUserRegister,
+        authController.register
+    );
 
 authRouter
     .route("/logout")
