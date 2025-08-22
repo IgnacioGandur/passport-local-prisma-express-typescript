@@ -4,8 +4,8 @@
   "description": "A boilerplate for an Express + Passport Js with local strategy + Prisma ORM + Typescript so you don't have to deal again with the pain in the ass of setting up Passport.",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx --watch --env-file .env src/app.ts",
-    "start": "node --env-file .env dist/server.js",
+    "dev": "NODE_ENV=development tsx --watch --env-file .env src/server.ts",
+    "start": "NODE_ENV=production node --env-file .env dist/server.js",
     "build": "tsc",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -23,7 +23,12 @@
   },
   "homepage": "https://github.com/IgnacioGandur/passport-local-prisma-express-typescript#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "@prisma/client": "^6.14.0",
+    "@types/passport": "^1.0.17",
+    "@types/passport-local": "^1.0.38",
+    "express": "^5.1.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
