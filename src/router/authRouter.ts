@@ -27,7 +27,7 @@ authRouter
     .route("/logout")
     .all(authController.logout);
 
-// Test if Passport is protecting routes here:
+// NOTE: Test if Passport is protecting routes here... Delete this after checking that Passport works correctly.
 authRouter
     .route("/protected-route")
     .all((req: Request, res: Response, next: NextFunction) => {
