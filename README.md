@@ -1,4 +1,4 @@
-# Passport.js (Local Strategy) + Prisma + PostgresQL + Express + Typescript API
+# Passport.js (Local Strategy) + Prisma + PostgreSQL + Express + Typescript API
 
 A boilerplate for Express APIs with authentication using Passport.js (local strategy), Prisma ORM (PostgreSQL), TypeScript, and Express Validator. Testing setup is optional.
 
