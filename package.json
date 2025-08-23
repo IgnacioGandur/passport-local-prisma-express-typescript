@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "NODE_ENV=development tsx --watch --env-file .env src/server.ts",
     "start": "NODE_ENV=production node --env-file .env dist/server.js",
+    "test": "NODE_ENV=test tsx src/tests/prepareDbForTests.ts && vitest --ui",
     "build": "tsc",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prisma:studio:test": "NODE_ENV=test prisma studio"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "@types/express-session": "^1.18.2",
     "@types/passport": "^1.0.17",
     "@types/passport-local": "^1.0.38",
+    "@types/supertest": "^6.0.3",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -38,15 +41,18 @@
     "express-session": "^1.18.2",
     "express-validator": "^7.2.1",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "supertest": "^7.1.4"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.0",
+    "@vitest/ui": "^3.2.4",
     "prettier": "^3.6.2",
     "prisma": "^6.14.0",
     "tsx": "^4.20.4",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }

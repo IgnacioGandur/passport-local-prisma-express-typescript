@@ -32,7 +32,7 @@ authRouter
     .route("/protected-route")
     .all((req: Request, res: Response, next: NextFunction) => {
         if (!req.isAuthenticated()) {
-            return res.status(422).json({
+            return res.status(401).json({
                 success: false,
                 message: "Unauthorized.",
             })

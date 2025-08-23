@@ -1,7 +1,6 @@
 import { NextFunction, type Request, type Response } from "express";
 import bcrypt from "bcryptjs";
 import user from "../db/user.js";
-import { send } from "process";
 
 interface RegisterRequestBody {
     username: string;

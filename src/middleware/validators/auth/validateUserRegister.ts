@@ -2,7 +2,7 @@ import validateChain from "../validateChain.js";
 import isUsernameAvailable from "../utilities/isUsernameAvailable.js";
 import { body } from "express-validator";
 
-const regex = /\w-/;
+const regex = /[\w\-/]*/;
 
 const validationChain = [
     body("username")

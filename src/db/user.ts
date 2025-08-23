@@ -52,6 +52,21 @@ class User {
             throw new Error("Something went wrong when trying to get a user by it's id.");
         }
     }
+
+    async deleteUserByUsername(username: string): Promise<UserType> {
+        try {
+            const user = await this.prisma.user.delete({
+                where: {
+                    username
+                }
+            });
+
+            return user;
+        } catch (error) {
+            console.error("Prisma error:", error);
+            throw new Error("Something went wron when trying to delete a user by it's username.");
+        }
+    }
 };
 
 export default new User(client);
