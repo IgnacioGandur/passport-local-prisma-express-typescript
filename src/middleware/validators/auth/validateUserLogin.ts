@@ -1,6 +1,6 @@
 import { body } from "express-validator";
 import validateChain from "../validateChain.js";
-import isUsernameAvailable from "../utilities/isUsernameAvailable.js";
+import checkIfUserExistsByUsername from "../utilities/checkIfUserExistsByUsername.js";
 import checkIfPasswordIsCorrect from "../utilities/checkIfPasswordIsCorrect.js";
 
 const validationChain = [
@@ -9,7 +9,7 @@ const validationChain = [
         .notEmpty()
         .withMessage("The username field can't be empty.")
         .bail()
-        .custom(async (username: string) => isUsernameAvailable(username, true))
+        .custom(checkIfUserExistsByUsername)
         .bail()
         .custom(checkIfPasswordIsCorrect)
     // NOTE: No need to validate the password in req.body.password since it's validated in the username validation chain.

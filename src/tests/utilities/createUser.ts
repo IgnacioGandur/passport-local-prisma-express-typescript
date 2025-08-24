@@ -1,11 +1,10 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import test_client from "../../db/test_client.js";
 import bcrypt from "bcryptjs";
 
 const createUser = async (username: string, password: string): Promise<void> => {
-    const client = new PrismaClient();
 
     // Get user if exists.
-    const user = await client.user.findUnique({
+    const user = await test_client.user.findUnique({
         where: {
             username
         }
@@ -15,7 +14,7 @@ const createUser = async (username: string, password: string): Promise<void> => 
         return;
     } else {
         const hashedPassword = await bcrypt.hash(password, 10);
-        await client.user.create({
+        await test_client.user.create({
             data: {
                 username,
                 password: hashedPassword

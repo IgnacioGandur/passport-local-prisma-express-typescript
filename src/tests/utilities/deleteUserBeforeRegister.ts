@@ -1,9 +1,18 @@
-import userModel from "../../db/user.js";
+import test_client from "../../db/test_client.js";
 
 const deleteUserBeforeRegister = async (username: string): Promise<void> => {
-    const user = await userModel.getUserByUsername(username);
+    const user = await test_client.user.findUnique({
+        where: {
+            username
+        }
+    })
+
     if (user) {
-        await userModel.deleteUserByUsername(username);
+        await test_client.user.delete({
+            where: {
+                username
+            }
+        })
     };
 };
 

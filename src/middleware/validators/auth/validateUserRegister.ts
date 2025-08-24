@@ -1,5 +1,5 @@
 import validateChain from "../validateChain.js";
-import isUsernameAvailable from "../utilities/isUsernameAvailable.js";
+import checkIfUsernameIsAvailable from "../utilities/checkIfUsernameIsAvailable.js";
 import { body } from "express-validator";
 
 const regex = /[\w\-/]*/;
@@ -14,7 +14,7 @@ const validationChain = [
         .isLength({ min: 2, max: 40 })
         .withMessage("The username field should be between 2 and 40 characters long.")
         .bail()
-        .custom(async (username) => isUsernameAvailable(username, false))
+        .custom(checkIfUsernameIsAvailable)
     ,
     body("password")
         .trim()
