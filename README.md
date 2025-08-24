@@ -1,4 +1,4 @@
-# Passport.js (Local Strategy) + Prisma + PostgresQL + Express + Typescript API
+# Passport.js (Local Strategy) + Prisma + PostgreSQL + Express + Typescript API
 
 A boilerplate for Express APIs with authentication using Passport.js (local strategy), Prisma ORM (PostgreSQL), TypeScript, and Express Validator. Testing setup is optional.
 
@@ -16,16 +16,16 @@ A boilerplate for Express APIs with authentication using Passport.js (local stra
 
 ### 📋 Instructions
 
-1. Clone this repo
+1. Clone this repo and rename it to your project's name
 
 ```bash
-git clone git@github.com:IgnacioGandur/passport-local-prisma-express-typescript.git
+git clone git@github.com:IgnacioGandur/passport-local-prisma-express-typescript.git <your-project-name>
 ```
 
-2. cd into the project folder
+2. cd into your project's folder
 
 ```bash
-cd passport-local-prisma-express-typescript/
+cd <your-project-name>
 ```
 3. Install npm packages
 
