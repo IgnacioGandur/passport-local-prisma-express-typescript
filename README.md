@@ -33,13 +33,18 @@ cd passport-local-prisma-express-typescript/
 npm install
 ```
 
-4. Open the `.env.example` file, change the values accordingly to your project and rename the file to `.env`.
+4. Open the `.env.example` file, change the values accordingly to your project and rename the file to `.env`
 
----
+```bash
+mv .env.example .env
+```
 
-### ⚠️IMPORTANT!
+5. Run Prisma migrations and generate the Prisma client
 
-Remember to `rm -rf .git` and `git init` so you can make this repo yours.
+```bash
+npx prisma migrate reset
+npx prisma generate
+```
 
 ---
 
@@ -71,6 +76,38 @@ git branch -d use-testing
 
 **If you use this testing implementation in your project, you need to create another PostgresQL database to run your tests into it. Example: if your project uses a database called `messaging_app`, create another one called `test_messaging_app`.**
 
+
+---
+
+### ⚠️Connecting to your Github repo!
+
+1. Remove this repo's `.git` folder
+
+```bash
+rm -rf .git
+```
+
+2. Init a new Git repo
+
+```bash
+git init
+```
+
+3. Create your Github repo
+
+4. Add your remote Github repo
+
+```bash
+git add remote origin git@github.com:<your-username>:<your-remote-repo-name>.git
+```
+
+5. Create the initial commit!
+
+```bash
+git add .
+git commit -m "Initial commit from boilerplate."
+git push -u origin main
+```
 ---
 
 ### 💻 Commands
